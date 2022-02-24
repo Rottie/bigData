@@ -16,6 +16,7 @@ const app = express();
 
 //Connect Database
 require("./config/mongoose");
+const PORT = process.env.PORT || 5000;
 
 // -------------------------------
 // Passport middleware
@@ -42,8 +43,6 @@ app.use("/employees", employee);
 app.get("/", (req, res) => {
   res.send("hello world");
 });
-
-const PORT = process.env.PORT || 5000;
 
 // setting port 3000
 app.listen(PORT, () => {
