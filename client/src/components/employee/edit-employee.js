@@ -24,7 +24,11 @@ export default class EditEmployee extends Component {
   // Read Specific
   componentDidMount() {
     axios
-      .get("http://localhost:5000/employees/edit/" + this.props.match.params.id)
+      .get(
+        "http://localhost:5000/employees/edit/" ||
+          "https://rottie.herokuapp.com/employees/edit/" +
+            this.props.match.params.id
+      )
       .then((res) => {
         this.setState({
           name: res.data.name,
@@ -57,7 +61,9 @@ export default class EditEmployee extends Component {
     // Update Specific
     axios
       .put(
-        "http://localhost:5000/employees/update/" + this.props.match.params.id,
+        ("http://localhost:5000/employees/update/" ||
+          "https://rottie.herokuapp.com/employees/update/") +
+          this.props.match.params.id,
         employeeObject
       )
       .then((res) => {

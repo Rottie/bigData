@@ -10,7 +10,10 @@ export default class DataTable extends Component {
   }
   deleteEmployee() {
     axios
-      .delete("http://localhost:5000/employees/delete/" + this.props.obj._id)
+      .delete(
+        ("http://localhost:5000/employees/delete/" ||
+          "https://rottie.herokuapp.com/employees/delete/") + this.props.obj._id
+      )
       .then((res) => {
         console.log("User successfully deleted!");
       })

@@ -17,7 +17,7 @@ export default class Users extends Component {
     axios
       .get(
         "http://localhost:5000/employees/" ||
-          "https://enigmatic-ravine-47562.herokuapp.com/users"
+          "https://rottie.herokuapp.com/employees/"
       )
       .then((res) => {
         this.setState({ employeesCollection: res.data });
